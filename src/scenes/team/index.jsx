@@ -1,4 +1,4 @@
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataTeam } from "../../data/mockData";
@@ -10,6 +10,7 @@ import Header from "../../components/Header";
 const Team = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // Check for mobile devices
   const columns = [
     { field: "id", headerName: "ID" },
     {
@@ -42,7 +43,7 @@ const Team = () => {
       renderCell: ({ row: { access } }) => {
         return (
           <Box
-            width="60%"
+            width={isMobile ? "100%" : "60%"} // Adjust width based on device
             m="0 auto"
             p="5px"
             display="flex"
@@ -100,10 +101,31 @@ const Team = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={mockDataTeam} columns={columns} />
+        <DataGrid
+          checkboxSelection
+          rows={mockDataTeam}
+          columns={columns}
+          components={{
+            NoRowsOverlay: isMobile ? MobileNoRowsOverlay : null,
+          }}
+        />
       </Box>
     </Box>
   );
 };
-
+const MobileNoRowsOverlay = () => {
+  return (
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "10px",
+      }}
+    >
+      <Typography>No rows</Typography>
+    </div>
+  );
+};
 export default Team;

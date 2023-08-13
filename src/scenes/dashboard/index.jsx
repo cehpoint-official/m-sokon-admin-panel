@@ -20,10 +20,18 @@ const Dashboard = () => {
   return (
     <Box m="20px">
       {/* HEADER */}
-      <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        flexDirection={{ xs: "column", md: "row" }} // Flex direction based on screen size
+      >
+        <Header title="DASHBOARD" subtitle="Welcome to Sokoni Admin dashboard" />
 
-        <Box>
+        <Box
+          mt={{ xs: "6px", md: "0" }}
+          textAlign={{ xs: "center", md: "right" }}
+        >
           <Button
             sx={{
               backgroundColor: colors.blueAccent[700],
@@ -31,6 +39,7 @@ const Dashboard = () => {
               fontSize: "14px",
               fontWeight: "bold",
               padding: "10px 20px",
+              mb: { xs: "10px", md: "0" }, // Margin bottom based on screen size
             }}
           >
             <DownloadOutlinedIcon sx={{ mr: "10px" }} />
@@ -42,13 +51,13 @@ const Dashboard = () => {
       {/* GRID & CHARTS */}
       <Box
         display="grid"
-        gridTemplateColumns="repeat(12, 1fr)"
+        gridTemplateColumns={{ xs: "1fr", md: "repeat(12, 1fr)" }}
+        gap={{ xs: "20px", md: "20px" }}
         gridAutoRows="140px"
-        gap="20px"
       >
         {/* ROW 1 */}
         <Box
-          gridColumn="span 3"
+          gridColumn={{ xs: "span 12", md: "span 3" }}
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -67,7 +76,7 @@ const Dashboard = () => {
           />
         </Box>
         <Box
-          gridColumn="span 3"
+          gridColumn={{ xs: "span 12", md: "span 3" }}
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -86,7 +95,7 @@ const Dashboard = () => {
           />
         </Box>
         <Box
-          gridColumn="span 3"
+          gridColumn={{ xs: "span 12", md: "span 3" }}
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -94,7 +103,7 @@ const Dashboard = () => {
         >
           <StatBox
             title="32,441"
-            subtitle="New Clients"
+            subtitle="New Seller & Buyer"
             progress="0.30"
             increase="+5%"
             icon={
@@ -105,7 +114,7 @@ const Dashboard = () => {
           />
         </Box>
         <Box
-          gridColumn="span 3"
+          gridColumn={{ xs: "span 12", md: "span 3" }}
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
@@ -126,7 +135,7 @@ const Dashboard = () => {
 
         {/* ROW 2 */}
         <Box
-          gridColumn="span 8"
+          gridColumn={{ xs: "span 12", md: "span 8" }}
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
         >
@@ -166,7 +175,7 @@ const Dashboard = () => {
           </Box>
         </Box>
         <Box
-          gridColumn="span 4"
+          gridColumn={{ xs: "span 12", md: "span 4" }}
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           overflow="auto"
@@ -218,8 +227,8 @@ const Dashboard = () => {
 
         {/* ROW 3 */}
         <Box
-          gridColumn="span 4"
-          gridRow="span 2"
+          gridColumn={{ xs: "span 12", md: "span 4" }}
+          gridRow={{ xs: "span 2", md: "span 2" }}
           backgroundColor={colors.primary[400]}
           p="30px"
         >
@@ -244,8 +253,8 @@ const Dashboard = () => {
           </Box>
         </Box>
         <Box
-          gridColumn="span 4"
-          gridRow="span 2"
+          gridColumn={{ xs: "span 12", md: "span 4" }}
+          gridRow={{ xs: "span 2", md: "span 2" }}
           backgroundColor={colors.primary[400]}
         >
           <Typography
@@ -260,8 +269,8 @@ const Dashboard = () => {
           </Box>
         </Box>
         <Box
-          gridColumn="span 4"
-          gridRow="span 2"
+          gridColumn={{ xs: "span 12", md: "span 4" }}
+          gridRow={{ xs: "span 2", md: "span 2" }}
           backgroundColor={colors.primary[400]}
           padding="30px"
         >
