@@ -16,6 +16,7 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import AddHomeIcon from "@mui/icons-material/AddHome";
 import image from "../../assets/user.jpg";
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -127,6 +128,13 @@ const Sidebar = () => {
 
             <Box paddingLeft={isCollapsed ? undefined : "10%"}>
               <Item
+                title="Welcome"
+                to="/"
+                icon={<AddHomeIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+              <Item
                 title="Dashboard"
                 to="/dashboard"
                 icon={<HomeOutlinedIcon />}
@@ -184,13 +192,13 @@ const Sidebar = () => {
                 selected={selected}
                 setSelected={setSelected}
               />
-              <Item
+              {/* <Item
                 title="FAQ Page"
                 to="/faq"
                 icon={<HelpOutlineOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}
-              />
+              /> */}
 
               <Typography
                 variant="h6"
