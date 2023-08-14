@@ -23,7 +23,7 @@ const Calendar = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // Check for mobile devices
 
   const handleDateClick = (selected) => {
-    const title = prompt("Please enter a new title for your event");
+    const title = prompt("Please enter a new title for your Advertisment");
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
 
@@ -41,7 +41,7 @@ const Calendar = () => {
   const handleEventClick = (selected) => {
     if (
       window.confirm(
-        `Are you sure you want to delete the event '${selected.event.title}'`
+        `Are you sure you want to delete the Advertisment '${selected.event.title}'`
       )
     ) {
       selected.event.remove();
@@ -65,7 +65,7 @@ const Calendar = () => {
           borderRadius="4px"
           mb={2} // Add margin bottom for spacing
         >
-          <Typography variant="h5">Events</Typography>
+          <Typography variant="h5">All Advertisment Schedule</Typography>
           <List>
             {currentEvents.map((event) => (
               <ListItem
@@ -121,13 +121,13 @@ const Calendar = () => {
             initialEvents={[
               {
                 id: "12315",
-                title: "All-day event",
-                date: "2022-09-14",
+                title: "All-day Advertisment",
+                date: "2023-06-14",
               },
               {
                 id: "5123",
-                title: "Timed event",
-                date: "2022-09-28",
+                title: "New Dress Advertise",
+                date: "2023-08-08",
               },
             ]}
           />

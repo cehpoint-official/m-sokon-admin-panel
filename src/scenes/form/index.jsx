@@ -13,7 +13,7 @@ const Form = () => {
 
   return (
     <Box m="20px">
-      <Header title="CREATE USER" subtitle="Create a New User Profile" />
+      <Header title="CREATE SERVICES" subtitle="Create a New Service" />
 
       <Formik
         onSubmit={handleFormSubmit}
@@ -41,26 +41,26 @@ const Form = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="First Name"
+                label="Service Name"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.firstName}
-                name="firstName"
-                error={!!touched.firstName && !!errors.firstName}
-                helperText={touched.firstName && errors.firstName}
+                value={values.serviceName}
+                name="serviceName"
+                error={!!touched.serviceName && !!errors.serviceName}
+                helperText={touched.serviceName && errors.serviceName}
                 sx={{ gridColumn: "span 2" }}
               />
               <TextField
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Last Name"
+                label="Service Details"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.lastName}
-                name="lastName"
-                error={!!touched.lastName && !!errors.lastName}
-                helperText={touched.lastName && errors.lastName}
+                value={values.serviceDetails}
+                name="serviceDetails"
+                error={!!touched.serviceDetails && !!errors.serviceDetails}
+                helperText={touched.serviceDetails && errors.serviceDetails}
                 sx={{ gridColumn: "span 2" }}
               />
               <TextField
@@ -93,32 +93,32 @@ const Form = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address 1"
+                label="Price"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.address1}
-                name="address1"
-                error={!!touched.address1 && !!errors.address1}
-                helperText={touched.address1 && errors.address1}
+                value={values.price}
+                name="price"
+                error={!!touched.price && !!errors.price}
+                helperText={touched.price && errors.price}
                 sx={{ gridColumn: "span 4" }}
               />
               <TextField
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address 2"
+                label="Offer Price"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.address2}
-                name="address2"
-                error={!!touched.address2 && !!errors.address2}
-                helperText={touched.address2 && errors.address2}
+                value={values.offerPrice}
+                name="offerPrice"
+                error={!!touched.offerPrice && !!errors.offerPrice}
+                helperText={touched.offerPrice && errors.offerPrice}
                 sx={{ gridColumn: "span 4" }}
               />
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
               <Button type="submit" color="secondary" variant="contained">
-                Create New User
+                Create New Service
               </Button>
             </Box>
           </form>
@@ -132,23 +132,23 @@ const phoneRegExp =
   /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
 
 const checkoutSchema = yup.object().shape({
-  firstName: yup.string().required("required"),
-  lastName: yup.string().required("required"),
+  serviceName: yup.string().required("required"),
+  serviceDetails: yup.string().required("required"),
   email: yup.string().email("invalid email").required("required"),
   contact: yup
     .string()
     .matches(phoneRegExp, "Phone number is not valid")
     .required("required"),
-  address1: yup.string().required("required"),
-  address2: yup.string().required("required"),
+  price: yup.string().required("required"),
+  offerPrice: yup.string().required("required"),
 });
 const initialValues = {
-  firstName: "",
-  lastName: "",
+  serviceName: "",
+  serviceDetails: "",
   email: "",
   contact: "",
-  address1: "",
-  address2: "",
+  price: "",
+  offerPrice: "",
 };
 
 export default Form;
