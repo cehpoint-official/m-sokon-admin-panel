@@ -19,6 +19,11 @@ import Welcome from "./scenes/welcome/Welcome";
 import Products from "./scenes/products";
 import Reviews from "./scenes/reviews";
 import Notification from "./components/Notification";
+import MarketingPromotions from "./scenes/marketing";
+import CustomerSupport from "./scenes/customerSupport";
+import ContentManagement from "./scenes/contentManagement";
+import AnalyticsReporting from "./scenes/analytics";
+import SalesReportsSection from "./components/SalesReportsSection";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -37,6 +42,23 @@ function App() {
                 <Route path="/" element={<Welcome />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/notification" element={<Notification />} />
+                <Route
+                  path="/marketing-promotions"
+                  element={<MarketingPromotions />}
+                />
+                <Route path="/customer-support" element={<CustomerSupport />} />
+                <Route
+                  path="/content-management"
+                  element={<ContentManagement />}
+                />
+                <Route
+                  path="/analytics-reporting"
+                  element={<AnalyticsReporting />}
+                />
+                <Route
+                  path="/sales-reports"
+                  element={<SalesReportsSection />}
+                />
                 <Route path="/team" element={<Team />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/feedback-reviews" element={<Reviews />} />
