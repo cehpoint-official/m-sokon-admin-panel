@@ -24,6 +24,9 @@ import CustomerSupport from "./scenes/customerSupport";
 import ContentManagement from "./scenes/contentManagement";
 import AnalyticsReporting from "./scenes/analytics";
 import SalesReportsSection from "./components/SalesReportsSection";
+import MonitorEngagementRetention from "./components/MonitorUserEngagementAndRetention";
+import PopularProductsCategoriesSection from "./components/PopularProductsCategoriesSection";
+import RevenueProfitTrendsSection from "./components/RevenueProfitTrendsSection";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -58,6 +61,18 @@ function App() {
                 <Route
                   path="/sales-reports"
                   element={<SalesReportsSection />}
+                />
+                <Route
+                  path="/user-engagement"
+                  element={<MonitorEngagementRetention />}
+                />
+                <Route
+                  path="/revenue-trends"
+                  element={<RevenueProfitTrendsSection />}
+                />
+                <Route
+                  path="/popular-products"
+                  element={<PopularProductsCategoriesSection />}
                 />
                 <Route path="/team" element={<Team />} />
                 <Route path="/products" element={<Products />} />
