@@ -116,11 +116,9 @@ const Sidebar = () => {
                     color={colors.grey[100]}
                     fontWeight="bold"
                     sx={{ m: "10px 0 0 0" }}
-                  >
-                    Ashraful
-                  </Typography>
+                  ></Typography>
                   <Typography variant="h5" color={colors.greenAccent[500]}>
-                    Sokoni Admin
+                    M-Soko Admin Panel
                   </Typography>
                 </Box>
               </Box>
@@ -157,6 +155,20 @@ const Sidebar = () => {
                 setSelected={setSelected}
               />
               <Item
+                title="Products Management"
+                to="/products"
+                icon={<PeopleOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+              <Item
+                title="Feedback and Reviews"
+                to="/feedback-reviews"
+                icon={<PeopleOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+              <Item
                 title="Contacts Information"
                 to="/contacts"
                 icon={<ContactsOutlinedIcon />}
@@ -164,7 +176,7 @@ const Sidebar = () => {
                 setSelected={setSelected}
               />
               <Item
-                title="Invoices Balances"
+                title="Payments and Finance"
                 to="/invoices"
                 icon={<ReceiptOutlinedIcon />}
                 selected={selected}
@@ -192,13 +204,13 @@ const Sidebar = () => {
                 selected={selected}
                 setSelected={setSelected}
               />
-              {/* <Item
+              <Item
                 title="FAQ Page"
                 to="/faq"
                 icon={<HelpOutlineOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}
-              /> */}
+              />
 
               <Typography
                 variant="h6"
