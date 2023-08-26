@@ -27,6 +27,9 @@ import SalesReportsSection from "./components/SalesReportsSection";
 import MonitorEngagementRetention from "./components/MonitorUserEngagementAndRetention";
 import PopularProductsCategoriesSection from "./components/PopularProductsCategoriesSection";
 import RevenueProfitTrendsSection from "./components/RevenueProfitTrendsSection";
+import SellerManagement from "./scenes/sellerManagement";
+import MonitorPerformancePage from "./components/MonitorPerformancePage";
+import OrderManagementPage from "./scenes/orders";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -74,7 +77,19 @@ function App() {
                   path="/popular-products"
                   element={<PopularProductsCategoriesSection />}
                 />
+                <Route
+                  path="/seller-management"
+                  element={<SellerManagement />}
+                />
+                <Route
+                  path="/order-management"
+                  element={<OrderManagementPage />}
+                />
                 <Route path="/team" element={<Team />} />
+                {/* <Route
+                  path="/monitor-performance"
+                  element={<MonitorPerformancePage />}
+                /> */}
                 <Route path="/products" element={<Products />} />
                 <Route path="/feedback-reviews" element={<Reviews />} />
                 <Route path="/contacts" element={<Contacts />} />

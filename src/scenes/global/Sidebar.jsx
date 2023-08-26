@@ -210,6 +210,20 @@ const Sidebar = () => {
                 selected={selected}
                 setSelected={setSelected}
               />
+              <Item
+                title="Seller Management "
+                to="/seller-management"
+                icon={<ReceiptOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+              <Item
+                title="Order Management "
+                to="/order-management"
+                icon={<ReceiptOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
 
               <Typography
                 variant="h6"
