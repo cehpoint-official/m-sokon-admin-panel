@@ -30,6 +30,8 @@ import RevenueProfitTrendsSection from "./components/RevenueProfitTrendsSection"
 import SellerManagement from "./scenes/sellerManagement";
 import MonitorPerformancePage from "./components/MonitorPerformancePage";
 import OrderManagementPage from "./scenes/orders";
+import ProductManagementPage from "./scenes/productMnagement";
+import UserManagement from "./scenes/userMnagement";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -84,6 +86,14 @@ function App() {
                 <Route
                   path="/order-management"
                   element={<OrderManagementPage />}
+                />
+                <Route
+                  path="/product-management"
+                  element={<ProductManagementPage />}
+                />
+                <Route
+                  path="/user-management"
+                  element={<UserManagement />}
                 />
                 <Route path="/team" element={<Team />} />
                 {/* <Route

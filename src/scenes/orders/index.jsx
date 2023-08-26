@@ -71,8 +71,8 @@ const OrderManagementPage = () => {
   };
   return (
     <Container>
-      <Typography variant="h4" gutterBottom>
-        Order Management (Seller)
+      <Typography variant="h2" gutterBottom>
+        Order Management
       </Typography>
       <TableContainer>
         <Table>
