@@ -18,6 +18,19 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import AddHomeIcon from "@mui/icons-material/AddHome";
 import image from "../../assets/user.jpg";
+import StorefrontIcon from "@mui/icons-material/Storefront";
+import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantityLimits";
+import FeedbackIcon from "@mui/icons-material/Feedback";
+import PaidIcon from "@mui/icons-material/Paid";
+import LocalConvenienceStoreIcon from "@mui/icons-material/LocalConvenienceStore";
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import ContentPasteGoIcon from "@mui/icons-material/ContentPasteGo";
+import AnalyticsIcon from "@mui/icons-material/Analytics";
+import Person4Icon from "@mui/icons-material/Person4";
+import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
+import InventoryIcon from "@mui/icons-material/Inventory";
+import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -150,21 +163,21 @@ const Sidebar = () => {
               <Item
                 title="Manage Buyer & Seller"
                 to="/team"
-                icon={<PeopleOutlinedIcon />}
+                icon={<StorefrontIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />
               <Item
                 title="Products Management"
                 to="/products"
-                icon={<PeopleOutlinedIcon />}
+                icon={<ProductionQuantityLimitsIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />
               <Item
                 title="Feedback and Reviews"
                 to="/feedback-reviews"
-                icon={<PeopleOutlinedIcon />}
+                icon={<FeedbackIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />
@@ -178,63 +191,63 @@ const Sidebar = () => {
               <Item
                 title="Payments and Finance"
                 to="/invoices"
-                icon={<ReceiptOutlinedIcon />}
+                icon={<PaidIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />
               <Item
                 title="Marketing and Promotions"
                 to="/marketing-promotions"
-                icon={<ReceiptOutlinedIcon />}
+                icon={<LocalConvenienceStoreIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />
               <Item
                 title="Customer Support "
                 to="/customer-support"
-                icon={<ReceiptOutlinedIcon />}
+                icon={<SupportAgentIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />
               <Item
                 title="Content Management "
                 to="/content-management"
-                icon={<ReceiptOutlinedIcon />}
+                icon={<ContentPasteGoIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />
               <Item
                 title="Analytics and Reporting "
                 to="/analytics-reporting"
-                icon={<ReceiptOutlinedIcon />}
+                icon={<AnalyticsIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />
               <Item
                 title="Seller Management "
                 to="/seller-management"
-                icon={<ReceiptOutlinedIcon />}
+                icon={<Person4Icon />}
                 selected={selected}
                 setSelected={setSelected}
               />
               <Item
                 title="Order Management "
                 to="/order-management"
-                icon={<ReceiptOutlinedIcon />}
+                icon={<SubscriptionsIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />
               <Item
                 title="Product Management"
                 to="/product-management"
-                icon={<ReceiptOutlinedIcon />}
+                icon={<InventoryIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />
               <Item
                 title="User Management"
                 to="/user-management"
-                icon={<ReceiptOutlinedIcon />}
+                icon={<ManageAccountsIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />
