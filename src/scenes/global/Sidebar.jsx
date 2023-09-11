@@ -30,6 +30,9 @@ import Person4Icon from "@mui/icons-material/Person4";
 import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import BusinessIcon from '@mui/icons-material/Business';
+import LegendToggleIcon from "@mui/icons-material/LegendToggle";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -248,6 +251,27 @@ const Sidebar = () => {
                 title="User Management"
                 to="/user-management"
                 icon={<ManageAccountsIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+              <Item
+                title="Bank Details"
+                to="/bank-details"
+                icon={<AccountBalanceIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+              <Item
+                title="Business Details"
+                to="/business-details"
+                icon={<BusinessIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
+              <Item
+                title="Monitor Business Details"
+                to="/monitor-business-details"
+                icon={<LegendToggleIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />

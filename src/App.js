@@ -32,6 +32,9 @@ import MonitorPerformancePage from "./components/MonitorPerformancePage";
 import OrderManagementPage from "./scenes/orders";
 import ProductManagementPage from "./scenes/productMnagement";
 import UserManagement from "./scenes/userMnagement";
+import BankDetailsForm from "./scenes/bankDetails";
+import BusinessDetailsForm from "./scenes/businessDetails";
+import MonitorBussnessDetails from "./scenes/monitorBussnessDetails";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -91,9 +94,15 @@ function App() {
                   path="/product-management"
                   element={<ProductManagementPage />}
                 />
+                <Route path="/user-management" element={<UserManagement />} />
+                <Route path="/bank-details" element={<BankDetailsForm />} />
                 <Route
-                  path="/user-management"
-                  element={<UserManagement />}
+                  path="/business-details"
+                  element={<BusinessDetailsForm />}
+                />
+                <Route
+                  path="/monitor-business-details"
+                  element={<MonitorBussnessDetails />}
                 />
                 <Route path="/team" element={<Team />} />
                 {/* <Route
