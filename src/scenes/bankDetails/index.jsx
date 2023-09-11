@@ -15,7 +15,7 @@ const BankDetailsForm = () => {
 
   return (
     <Container>
-      <Typography variant="h2">Bank Details</Typography>
+      <Typography variant="h2">Seller Bank Details</Typography>
       <form onSubmit={handleSubmit}>
         <Grid container spacing={2} style={{ marginTop: "16px" }}>
           <Grid item xs={12}>

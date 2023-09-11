@@ -101,7 +101,7 @@ const handleInputChange = (event) => {
   return (
     <Container>
       <Typography variant="h2" gutterBottom style={{ marginBottom: "16px" }}>
-        Business Details
+        Seller Business Details
       </Typography>
       <form onSubmit={handleSubmit}>
         <Grid container spacing={2}>
@@ -153,6 +153,10 @@ const handleInputChange = (event) => {
             />
           </Grid>
           <Grid item xs={12}>
+            <Typography variant="body2" style={{marginBottom:"16px"}}>
+              Business License Document/TIN Certificate (Accepted formats: .pdf,
+              .doc, .docx)
+            </Typography>
             <input
               type="file"
               accept=".pdf, .doc, .docx"

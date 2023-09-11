@@ -16,6 +16,8 @@ import {
   TableRow,
   TableCell,
   TableBody,
+  Modal,
+  makeStyles,
 } from "@mui/material";
 import { ResponsiveBar } from "@nivo/bar";
 
@@ -24,6 +26,8 @@ const MonitorBussnesse = () => {
   const [documents, setDocuments] = useState([]);
   const [approvalStatus, setApprovalStatus] = useState("");
   const [documentApprovalStatus, setDocumentApprovalStatus] = useState({});
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedDocument, setSelectedDocument] = useState(null);
 
   // Demo document list with status and approval information
   const demoDocuments = [
@@ -32,72 +36,204 @@ const MonitorBussnesse = () => {
       status: "Approved",
       approvalDate: "2023-09-12",
       approvalTime: "10:30 AM",
+      bankInfo: {
+        bankName: "AB Bank",
+        accountNumber: "123456789",
+        swiftCode: "DEMO123",
+      },
+      businessDetails: {
+        businessName: "Tanzania Trade Center",
+        tinNumber: "123456789",
+        vrnNumber: "VRN123",
+        address: "123 TN Street,Tanzania",
+      },
     },
     {
-      name: "Demo Document 1.pdf",
+      name: "Demo Document 2.pdf",
       status: "Approved",
       approvalDate: "2023-09-12",
       approvalTime: "10:30 AM",
+      bankInfo: {
+        bankName: "AB Bank",
+        accountNumber: "123456789",
+        swiftCode: "DEMO123",
+      },
+      businessDetails: {
+        businessName: "Tanzania Trade Center",
+        tinNumber: "123456789",
+        vrnNumber: "VRN123",
+        address: "123 TN Street,Tanzania",
+      },
     },
     {
-      name: "Demo Document 1.pdf",
+      name: "Demo Document 3.pdf",
       status: "Approved",
       approvalDate: "2023-09-12",
       approvalTime: "10:30 AM",
+      bankInfo: {
+        bankName: "AB Bank",
+        accountNumber: "123456789",
+        swiftCode: "DEMO123",
+      },
+      businessDetails: {
+        businessName: "Tanzania Trade Center",
+        tinNumber: "123456789",
+        vrnNumber: "VRN123",
+        address: "123 TN Street,Tanzania",
+      },
     },
     {
-      name: "Demo Document 1.pdf",
+      name: "Demo Document 4.pdf",
       status: "Approved",
       approvalDate: "2023-09-12",
       approvalTime: "10:30 AM",
+      bankInfo: {
+        bankName: "AB Bank",
+        accountNumber: "123456789",
+        swiftCode: "DEMO123",
+      },
+      businessDetails: {
+        businessName: "Tanzania Trade Center",
+        tinNumber: "123456789",
+        vrnNumber: "VRN123",
+        address: "123 TN Street,Tanzania",
+      },
     },
     {
-      name: "Demo Document 2.docx",
+      name: "Demo Document 5.docx",
       status: "Rejected",
       approvalDate: "2023-09-13",
       approvalTime: "11:45 AM",
+      bankInfo: {
+        bankName: "AB Bank",
+        accountNumber: "123456789",
+        swiftCode: "DEMO123",
+      },
+      businessDetails: {
+        businessName: "Tanzania Trade Center",
+        tinNumber: "123456789",
+        vrnNumber: "VRN123",
+        address: "123 TN Street,Tanzania",
+      },
     },
     {
-      name: "Demo Document 2.docx",
+      name: "Demo Document 6.docx",
       status: "Rejected",
       approvalDate: "2023-09-13",
       approvalTime: "11:45 AM",
+      bankInfo: {
+        bankName: "AB Bank",
+        accountNumber: "123456789",
+        swiftCode: "DEMO123",
+      },
+      businessDetails: {
+        businessName: "Tanzania Trade Center",
+        tinNumber: "123456789",
+        vrnNumber: "VRN123",
+        address: "123 TN Street,Tanzania",
+      },
     },
     {
-      name: "Demo Document 2.docx",
+      name: "Demo Document 7.docx",
       status: "Rejected",
       approvalDate: "2023-09-13",
       approvalTime: "11:45 AM",
+      bankInfo: {
+        bankName: "AB Bank",
+        accountNumber: "123456789",
+        swiftCode: "DEMO123",
+      },
+      businessDetails: {
+        businessName: "Tanzania Trade Center",
+        tinNumber: "123456789",
+        vrnNumber: "VRN123",
+        address: "123 TN Street,Tanzania",
+      },
     },
     {
-      name: "Demo Document 3.pdf",
+      name: "Demo Document 8.pdf",
       status: "Pending",
       approvalDate: null,
       approvalTime: null,
+      bankInfo: {
+        bankName: "AB Bank",
+        accountNumber: "123456789",
+        swiftCode: "DEMO123",
+      },
+      businessDetails: {
+        businessName: "Tanzania Trade Center",
+        tinNumber: "123456789",
+        vrnNumber: "VRN123",
+        address: "123 TN Street,Tanzania",
+      },
     },
     {
-      name: "Demo Document 3.pdf",
+      name: "Demo Document 9.pdf",
       status: "Pending",
       approvalDate: null,
       approvalTime: null,
+      bankInfo: {
+        bankName: "AB Bank",
+        accountNumber: "123456789",
+        swiftCode: "DEMO123",
+      },
+      businessDetails: {
+        businessName: "Tanzania Trade Center",
+        tinNumber: "123456789",
+        vrnNumber: "VRN123",
+        address: "123 TN Street,Tanzania",
+      },
     },
     {
-      name: "Demo Document 3.pdf",
+      name: "Demo Document 10.pdf",
       status: "Pending",
       approvalDate: null,
       approvalTime: null,
+      bankInfo: {
+        bankName: "AB Bank",
+        accountNumber: "123456789",
+        swiftCode: "DEMO123",
+      },
+      businessDetails: {
+        businessName: "Tanzania Trade Center",
+        tinNumber: "123456789",
+        vrnNumber: "VRN123",
+        address: "123 TN Street,Tanzania",
+      },
     },
     {
-      name: "Demo Document 3.pdf",
+      name: "Demo Document 11.pdf",
       status: "Pending",
       approvalDate: null,
       approvalTime: null,
+      bankInfo: {
+        bankName: "AB Bank",
+        accountNumber: "123456789",
+        swiftCode: "DEMO123",
+      },
+      businessDetails: {
+        businessName: "Tanzania Trade Center",
+        tinNumber: "123456789",
+        vrnNumber: "VRN123",
+        address: "123 TN Street,Tanzania",
+      },
     },
     {
-      name: "Demo Document 4.doc",
+      name: "Demo Document 12.doc",
       status: "Pending",
       approvalDate: null,
       approvalTime: null,
+      bankInfo: {
+        bankName: "AB Bank",
+        accountNumber: "123456789",
+        swiftCode: "DEMO123",
+      },
+      businessDetails: {
+        businessName: "Tanzania Trade Center",
+        tinNumber: "123456789",
+        vrnNumber: "VRN123",
+        address: "123 TN Street,Tanzania",
+      },
     },
   ];
 
@@ -167,11 +303,16 @@ const MonitorBussnesse = () => {
       count: demoDocuments.filter((doc) => doc.status === "Rejected").length,
     },
   ];
+  //  document details modal
+  const handleDocumentClick = (document) => {
+    setSelectedDocument(document);
+    setModalOpen(true);
+  };
 
   return (
     <Container>
       <Typography variant="h2" gutterBottom>
-        Business Document Monitoring Dashboard
+        Business Document Monitoring Dashboard(Admin)
       </Typography>
 
       {/* Document Upload Section */}
@@ -207,9 +348,13 @@ const MonitorBussnesse = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
+                  cursor: "pointer", // Add cursor pointer to indicate clickability
                 }}
               >
-                <ListItemText primary={document.name} />
+                <ListItemText
+                  primary={document.name}
+                  onClick={() => handleDocumentClick(document)}
+                />
                 {document.status === "Pending" && (
                   <>
                     <Button
@@ -242,6 +387,117 @@ const MonitorBussnesse = () => {
             ))}
         </List>
       </Paper>
+
+      {/* Bank info and business details into the modal */}
+      <Modal open={modalOpen} onClose={() => setModalOpen(false)}>
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            backgroundColor: "white",
+            color: "black",
+            width: "75%",
+            boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)",
+            padding: "20px",
+            borderRadius: "5px",
+          }}
+        >
+          <Typography
+            variant="h5"
+            align="center"
+            style={{
+              marginBottom: "20px",
+              fontWeight: "bold", // Make the text bold
+              fontSize: "24px", // Set the font size to 24 pixels
+            }}
+          >
+            {selectedDocument
+              ? `Document Information for: ${selectedDocument.name}`
+              : "Document Information"}
+          </Typography>
+          {selectedDocument && (
+            <>
+              {/* Bank Info */}
+              <Typography variant="h6" style={{ marginBottom: "10px" }}>
+                Bank Information
+              </Typography>
+              <TableContainer
+                component={Paper}
+                style={{ marginBottom: "20px" }}
+              >
+                <Table>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>Bank Name</TableCell>
+                      <TableCell>
+                        {selectedDocument.bankInfo.bankName}
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Account Number</TableCell>
+                      <TableCell>
+                        {selectedDocument.bankInfo.accountNumber}
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Swift Code</TableCell>
+                      <TableCell>
+                        {selectedDocument.bankInfo.swiftCode}
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+
+              {/* Business Details */}
+              <Typography variant="h6" style={{ marginBottom: "10px" }}>
+                Business Details
+              </Typography>
+              <TableContainer component={Paper}>
+                <Table>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>Business Name</TableCell>
+                      <TableCell>
+                        {selectedDocument.businessDetails.businessName}
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>TIN Number</TableCell>
+                      <TableCell>
+                        {selectedDocument.businessDetails.tinNumber}
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>VRN Number</TableCell>
+                      <TableCell>
+                        {selectedDocument.businessDetails.vrnNumber}
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>Address</TableCell>
+                      <TableCell>
+                        {selectedDocument.businessDetails.address}
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </>
+          )}
+          <div style={{ textAlign: "right", marginTop: "20px" }}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => setModalOpen(false)}
+            >
+              Close
+            </Button>
+          </div>
+        </div>
+      </Modal>
 
       {/* Approval Workflow Section */}
       <Paper elevation={3} style={{ padding: "20px" }}>
