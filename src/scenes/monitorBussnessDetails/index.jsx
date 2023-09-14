@@ -18,8 +18,13 @@ import {
   TableBody,
   Modal,
   makeStyles,
+  CardContent,
+  Card,
 } from "@mui/material";
 import { ResponsiveBar } from "@nivo/bar";
+import ReleaseForm from "../../components/ReleaseForm";
+import RelasedInfoEdit from "../../components/RelasedInfoEdit";
+import ServiceListing from "../../components/ServiceListing";
 
 const MonitorBussnesse = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -314,6 +319,10 @@ const MonitorBussnesse = () => {
       <Typography variant="h2" gutterBottom>
         Business Document Monitoring Dashboard(Admin)
       </Typography>
+      {/* Relase form  */}
+      <ReleaseForm />
+      {/* relase form edit and demo data */}
+      <RelasedInfoEdit />
 
       {/* Document Upload Section */}
       <Paper elevation={3} style={{ padding: "20px", marginBottom: "20px" }}>
@@ -529,6 +538,8 @@ const MonitorBussnesse = () => {
           </TableContainer>
         </Box>
       </Paper>
+      {/* Service listing section */}
+      <ServiceListing />
       {/* Bar Chart */}
       <div style={{ height: "300px" }}>
         <ResponsiveBar

@@ -275,6 +275,13 @@ const Sidebar = () => {
                 selected={selected}
                 setSelected={setSelected}
               />
+              <Item
+                title="On Boarding Form"
+                to="/onboaridng-form"
+                icon={<LegendToggleIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
 
               <Typography
                 variant="h6"
