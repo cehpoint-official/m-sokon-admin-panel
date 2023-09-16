@@ -19,6 +19,7 @@ const ServiceListing = () => {
       sellerName: "John Doe",
       reviewDescription: "Excellent service with great communication.",
       sellerType: "Service Seller",
+      price: "3000",
     },
     {
       title: "Service Listing 2",
@@ -27,6 +28,7 @@ const ServiceListing = () => {
       sellerName: "Jane Smith",
       reviewDescription: "Good service, but could improve response time.",
       sellerType: "Product Seller",
+      price: "3000",
     },
     {
       title: "Service Listing 3",
@@ -34,7 +36,8 @@ const ServiceListing = () => {
         "Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
       sellerName: "Alice Johnson",
       reviewDescription: "Outstanding service. Highly recommended.",
-      sellerType: "Service Seller",
+      sellerType: "Property Seller",
+      price: "3000",
     },
     {
       title: "Service Listing 4",
@@ -43,6 +46,7 @@ const ServiceListing = () => {
       sellerName: "Bob Wilson",
       reviewDescription: "Top-notch service. No complaints whatsoever.",
       sellerType: "Product Seller",
+      price: "3000",
     },
   ];
 
@@ -90,6 +94,9 @@ const ServiceListing = () => {
                 <br />
                 <Typography variant="h4" color="textSecondary">
                   Seller Type: {listing.sellerType}
+                </Typography>
+                <Typography variant="h4" color="textSecondary">
+                  Price: TZS{listing.price}
                 </Typography>
                 <div style={{ marginTop: "8px", fontSize: "1.2rem" }}>
                   <Rating

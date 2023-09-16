@@ -36,6 +36,7 @@ import BankDetailsForm from "./scenes/bankDetails";
 import BusinessDetailsForm from "./scenes/businessDetails";
 import MonitorBussnessDetails from "./scenes/monitorBussnessDetails";
 import OnboardingForm from "./scenes/onbording";
+import Advertisment from "./scenes/advertising";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -108,6 +109,10 @@ function App() {
                 <Route
                   path="/onboaridng-form"
                   element={<OnboardingForm />}
+                />
+                <Route
+                  path="/advertising-management"
+                  element={<Advertisment />}
                 />
                 <Route path="/team" element={<Team />} />
                 {/* <Route
