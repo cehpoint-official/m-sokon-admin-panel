@@ -25,6 +25,8 @@ import { ResponsiveBar } from "@nivo/bar";
 import ReleaseForm from "../../components/ReleaseForm";
 import RelasedInfoEdit from "../../components/RelasedInfoEdit";
 import ServiceListing from "../../components/ServiceListing";
+import ProductListing from "../../components/ProductListing";
+import PropertyListing from "../../components/PropertyListing";
 
 const MonitorBussnesse = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -33,8 +35,8 @@ const MonitorBussnesse = () => {
   const [documentApprovalStatus, setDocumentApprovalStatus] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState(null);
-   const [editBankInfo, setEditBankInfo] = useState(false);
-   const [editBusinessInfo, setEditBusinessInfo] = useState(false);
+  const [editBankInfo, setEditBankInfo] = useState(false);
+  const [editBusinessInfo, setEditBusinessInfo] = useState(false);
 
   // Demo document list with status and approval information
   const demoDocuments = [
@@ -316,7 +318,7 @@ const MonitorBussnesse = () => {
     setModalOpen(true);
   };
 
-//  edit button for bank and business info
+  //  edit button for bank and business info
 
   const handleEditBankInfo = () => {
     setEditBankInfo(!editBankInfo);
@@ -654,6 +656,10 @@ const MonitorBussnesse = () => {
       </Paper>
       {/* Service listing section */}
       <ServiceListing />
+      {/* Product Lsiting Section */}
+      <ProductListing />
+      {/* Property Listing section */}
+      <PropertyListing />
       {/* Bar Chart */}
       <div style={{ height: "300px" }}>
         <ResponsiveBar
