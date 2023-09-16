@@ -33,6 +33,8 @@ import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import BusinessIcon from '@mui/icons-material/Business';
 import LegendToggleIcon from "@mui/icons-material/LegendToggle";
+import DynamicFormIcon from "@mui/icons-material/DynamicForm";
+import AddBusinessIcon from "@mui/icons-material/AddBusiness";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -278,14 +280,14 @@ const Sidebar = () => {
               <Item
                 title="On Boarding Form"
                 to="/onboaridng-form"
-                icon={<LegendToggleIcon />}
+                icon={<DynamicFormIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />
               <Item
                 title="Advertise Management"
                 to="/advertising-management"
-                icon={<LegendToggleIcon />}
+                icon={<AddBusinessIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />

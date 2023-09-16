@@ -25,11 +25,12 @@ const SellerManagement = () => {
   const [selectedSeller, setSelectedSeller] = useState(null);
   const [paymentDialogOpen, setPaymentDialogOpen] = useState(false);
   const [commissionRate, setCommissionRate] = useState(0);
+  const [editedSellerCommission, setEditedSellerCommission] = useState(0); // Step 1: Add editedSellerCommission
 
   const sellers = [
-    { id: 1, name: "Seller 1", status: "Pending", commission: "10" },
-    { id: 2, name: "Seller 2", status: "Approved", commission: "10" },
-    { id: 3, name: "Seller 3", status: "Approved", commission: "10" },
+    { id: 1, name: "Seller 1", status: "Pending", commission: 10 },
+    { id: 2, name: "Seller 2", status: "Approved", commission: 15 },
+    { id: 3, name: "Seller 3", status: "Approved", commission: 12 },
     // ... more sellers
   ];
 
@@ -55,6 +56,13 @@ const SellerManagement = () => {
     setPaymentDialogOpen(false);
   };
 
+  // Step 2: Add function to handle editing the commission rate
+  const handleEditCommission = (seller) => {
+    setEditedSellerCommission(seller.commission);
+    setSelectedSeller(seller);
+    setOpenDialog(true);
+  };
+
   return (
     <div style={{ marginLeft: "16px" }}>
       <h1>Seller Management</h1>
@@ -65,7 +73,7 @@ const SellerManagement = () => {
               <TableCell>ID</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Status</TableCell>
-              <TableCell>commission</TableCell>
+              <TableCell>Commission</TableCell>
               <TableCell>Action</TableCell>
             </TableRow>
           </TableHead>
@@ -97,7 +105,15 @@ const SellerManagement = () => {
                       Approve
                     </Button>
                   )}
-
+                  {/* Step 3: Add "Edit Commission" button */}
+                  <Button
+                    variant="outlined"
+                    color="info"
+                    style={{ marginLeft: "16px" }}
+                    onClick={() => handleEditCommission(seller)}
+                  >
+                    Edit Commission
+                  </Button>
                   <Button
                     variant="outlined"
                     color="secondary"
@@ -124,7 +140,7 @@ const SellerManagement = () => {
       <Button
         variant="contained"
         color="primary"
-        onClick={handleCommissionAndPayment} // Add this onClick handler
+        onClick={handleCommissionAndPayment}
         style={{ marginTop: "16px", marginLeft: "16px" }}
       >
         Set Commission and Process Payment
@@ -135,24 +151,32 @@ const SellerManagement = () => {
         <DialogTitle>Edit Seller</DialogTitle>
         <DialogContent>
           {/* Add form fields to edit seller details here */}
-          {/* For example: */}
           <TextField
             label="Seller Name"
+            style={{ marginTop: "16px" }}
+            color="info"
             fullWidth
             defaultValue={selectedSeller?.name}
+          />
+          {/* Step 4: Add commission rate field */}
+          <TextField
+            label="Commission Rate (%)"
+            color="info"
+            type="number"
+            style={{ marginTop: "16px" }}
+            value={editedSellerCommission}
+            onChange={(e) => setEditedSellerCommission(e.target.value)}
+            fullWidth
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleDialogClose} color="secondary">
             Cancel
           </Button>
-          <Button onClick={handleDialogClose} color="secondary">
+          <Button onClick={handleDialogClose} color="info">
             Save
           </Button>
         </DialogActions>
-      </Dialog>
-      <Dialog open={openDialog} onClose={handleDialogClose}>
-        {/* ... DialogTitle, DialogContent, and DialogActions ... */}
       </Dialog>
 
       {/* Payment and Commission Dialog */}
@@ -160,6 +184,7 @@ const SellerManagement = () => {
         <DialogTitle>Payment Processing & Commission Rate</DialogTitle>
         <DialogContent>
           <TextField
+            style={{ marginTop: "16px" }}
             label="Commission Rate (%)"
             type="number"
             value={commissionRate}
@@ -172,7 +197,7 @@ const SellerManagement = () => {
           <Button onClick={handlePaymentDialogClose} color="secondary">
             Cancel
           </Button>
-          <Button onClick={handlePaymentDialogClose} color="secondary">
+          <Button onClick={handlePaymentDialogClose} color="info">
             Process Payment
           </Button>
         </DialogActions>

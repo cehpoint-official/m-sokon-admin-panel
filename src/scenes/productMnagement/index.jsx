@@ -59,6 +59,7 @@ const ProductManagement = () => {
       alertThreshold: "99",
       reviews: ["review", "hey there hru"],
       rating: 8,
+      discount: 10,
     },
     {
       id: 2,
@@ -69,6 +70,7 @@ const ProductManagement = () => {
       alertThreshold: "99",
       reviews: ["review", "hey there hru"],
       rating: 8,
+      discount: 15,
     },
     // ... more products
   ];
@@ -131,6 +133,9 @@ const ProductManagement = () => {
                 <Typography variant="body2" color="textSecondary">
                   Price: ${product.price}
                 </Typography>
+                <Typography variant="body2" color="textSecondary">
+                  Discount: {product.discount}%
+                </Typography>
                 <Button
                   onClick={() => handleEditProduct(product)}
                   startIcon={<EditIcon />}
@@ -164,6 +169,7 @@ const ProductManagement = () => {
           {selectedProduct ? "Edit Product" : "Add Product"}
         </DialogTitle>
         <DialogContent>
+          {/* Edit product Modal here */}
           <ProductForm
             selectedProduct={selectedProduct}
             onClose={handleDialogClose}

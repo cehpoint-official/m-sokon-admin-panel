@@ -33,6 +33,8 @@ const MonitorBussnesse = () => {
   const [documentApprovalStatus, setDocumentApprovalStatus] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedDocument, setSelectedDocument] = useState(null);
+   const [editBankInfo, setEditBankInfo] = useState(false);
+   const [editBusinessInfo, setEditBusinessInfo] = useState(false);
 
   // Demo document list with status and approval information
   const demoDocuments = [
@@ -314,6 +316,16 @@ const MonitorBussnesse = () => {
     setModalOpen(true);
   };
 
+//  edit button for bank and business info
+
+  const handleEditBankInfo = () => {
+    setEditBankInfo(!editBankInfo);
+  };
+
+  const handleEditBusinessInfo = () => {
+    setEditBusinessInfo(!editBusinessInfo);
+  };
+
   return (
     <Container>
       <Typography variant="h2" gutterBottom>
@@ -418,8 +430,8 @@ const MonitorBussnesse = () => {
             align="center"
             style={{
               marginBottom: "20px",
-              fontWeight: "bold", // Make the text bold
-              fontSize: "24px", // Set the font size to 24 pixels
+              fontWeight: "bold",
+              fontSize: "24px",
             }}
           >
             {selectedDocument
@@ -431,6 +443,14 @@ const MonitorBussnesse = () => {
               {/* Bank Info */}
               <Typography variant="h6" style={{ marginBottom: "10px" }}>
                 Bank Information
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  onClick={() => handleEditBankInfo()}
+                  style={{ marginLeft: "10px" }}
+                >
+                  {editBankInfo ? "Save" : "Edit"}
+                </Button>
               </Typography>
               <TableContainer
                 component={Paper}
@@ -441,19 +461,55 @@ const MonitorBussnesse = () => {
                     <TableRow>
                       <TableCell>Bank Name</TableCell>
                       <TableCell>
-                        {selectedDocument.bankInfo.bankName}
+                        {editBankInfo ? (
+                          <TextField
+                            variant="outlined"
+                            fullWidth
+                            value={selectedDocument.bankInfo.bankName}
+                            onChange={(e) =>
+                              (selectedDocument.bankInfo.bankName =
+                                e.target.value)
+                            }
+                          />
+                        ) : (
+                          selectedDocument.bankInfo.bankName
+                        )}
                       </TableCell>
                     </TableRow>
                     <TableRow>
                       <TableCell>Account Number</TableCell>
                       <TableCell>
-                        {selectedDocument.bankInfo.accountNumber}
+                        {editBankInfo ? (
+                          <TextField
+                            variant="outlined"
+                            fullWidth
+                            value={selectedDocument.bankInfo.accountNumber}
+                            onChange={(e) =>
+                              (selectedDocument.bankInfo.accountNumber =
+                                e.target.value)
+                            }
+                          />
+                        ) : (
+                          selectedDocument.bankInfo.accountNumber
+                        )}
                       </TableCell>
                     </TableRow>
                     <TableRow>
                       <TableCell>Swift Code</TableCell>
                       <TableCell>
-                        {selectedDocument.bankInfo.swiftCode}
+                        {editBankInfo ? (
+                          <TextField
+                            variant="outlined"
+                            fullWidth
+                            value={selectedDocument.bankInfo.swiftCode}
+                            onChange={(e) =>
+                              (selectedDocument.bankInfo.swiftCode =
+                                e.target.value)
+                            }
+                          />
+                        ) : (
+                          selectedDocument.bankInfo.swiftCode
+                        )}
                       </TableCell>
                     </TableRow>
                   </TableBody>
@@ -463,6 +519,14 @@ const MonitorBussnesse = () => {
               {/* Business Details */}
               <Typography variant="h6" style={{ marginBottom: "10px" }}>
                 Business Details
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  onClick={() => handleEditBusinessInfo()}
+                  style={{ marginLeft: "10px" }}
+                >
+                  {editBusinessInfo ? "Save" : "Edit"}
+                </Button>
               </Typography>
               <TableContainer component={Paper}>
                 <Table>
@@ -470,25 +534,75 @@ const MonitorBussnesse = () => {
                     <TableRow>
                       <TableCell>Business Name</TableCell>
                       <TableCell>
-                        {selectedDocument.businessDetails.businessName}
+                        {editBusinessInfo ? (
+                          <TextField
+                            variant="outlined"
+                            fullWidth
+                            value={
+                              selectedDocument.businessDetails.businessName
+                            }
+                            onChange={(e) =>
+                              (selectedDocument.businessDetails.businessName =
+                                e.target.value)
+                            }
+                          />
+                        ) : (
+                          selectedDocument.businessDetails.businessName
+                        )}
                       </TableCell>
                     </TableRow>
                     <TableRow>
                       <TableCell>TIN Number</TableCell>
                       <TableCell>
-                        {selectedDocument.businessDetails.tinNumber}
+                        {editBusinessInfo ? (
+                          <TextField
+                            variant="outlined"
+                            fullWidth
+                            value={selectedDocument.businessDetails.tinNumber}
+                            onChange={(e) =>
+                              (selectedDocument.businessDetails.tinNumber =
+                                e.target.value)
+                            }
+                          />
+                        ) : (
+                          selectedDocument.businessDetails.tinNumber
+                        )}
                       </TableCell>
                     </TableRow>
                     <TableRow>
                       <TableCell>VRN Number</TableCell>
                       <TableCell>
-                        {selectedDocument.businessDetails.vrnNumber}
+                        {editBusinessInfo ? (
+                          <TextField
+                            variant="outlined"
+                            fullWidth
+                            value={selectedDocument.businessDetails.vrnNumber}
+                            onChange={(e) =>
+                              (selectedDocument.businessDetails.vrnNumber =
+                                e.target.value)
+                            }
+                          />
+                        ) : (
+                          selectedDocument.businessDetails.vrnNumber
+                        )}
                       </TableCell>
                     </TableRow>
                     <TableRow>
                       <TableCell>Address</TableCell>
                       <TableCell>
-                        {selectedDocument.businessDetails.address}
+                        {editBusinessInfo ? (
+                          <TextField
+                            variant="outlined"
+                            fullWidth
+                            value={selectedDocument.businessDetails.address}
+                            onChange={(e) =>
+                              (selectedDocument.businessDetails.address =
+                                e.target.value)
+                            }
+                          />
+                        ) : (
+                          selectedDocument.businessDetails.address
+                        )}
                       </TableCell>
                     </TableRow>
                   </TableBody>
