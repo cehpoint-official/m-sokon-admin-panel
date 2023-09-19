@@ -1,4 +1,17 @@
-import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  IconButton,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import { tokens } from "../../theme";
 import { mockTransactions } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
@@ -13,9 +26,49 @@ import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 
+import { ResponsivePie } from "@nivo/pie"; // Import the ResponsivePie component from @nivo/pie
+// Replace this with your actual mostSearchedProduct data or define it
+const mostSearchedProduct = {
+  name: "Product A",
+  searches: 5000, // Replace with the actual number of searches
+  views: 8000, // Replace with the actual number of views
+};
+
+const pieChartData = [
+  {
+    id: "Searches",
+    label: "Searches",
+    value: mostSearchedProduct.searches,
+  },
+  {
+    id: "Views",
+    label: "Views",
+    value: mostSearchedProduct.views,
+  },
+];
+
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  // Calculate the summary of services
+  const totalServices = 250; // Replace with your actual data
+  const contactedServices = 120; // Replace with your actual data
+  const completionPercentage = (contactedServices / totalServices) * 100;
+
+  // Mock data for the product with the most searches and views
+  const mostSearchedProduct = {
+    name: "Product A",
+    searches: 5000,
+    views: 8000,
+  };
+
+  // Mock data for product listing
+  const products = [
+    { name: "Product A", searches: 5000, views: 8000 },
+    { name: "Product B", searches: 3000, views: 6000 },
+    { name: "Product C", searches: 2000, views: 4500 },
+    // Add more products as needed
+  ];
 
   return (
     <Box m="20px">
@@ -26,7 +79,10 @@ const Dashboard = () => {
         alignItems="center"
         flexDirection={{ xs: "column", md: "row" }} // Flex direction based on screen size
       >
-        <Header title="DASHBOARD" subtitle="Welcome to Sokoni Admin dashboard" />
+        <Header
+          title="DASHBOARD"
+          subtitle="Welcome to Sokoni Admin dashboard"
+        />
 
         <Box
           mt={{ xs: "6px", md: "0" }}
@@ -223,6 +279,140 @@ const Dashboard = () => {
               </Box>
             </Box>
           ))}
+        </Box>
+
+        {/* SUMMARY OF SERVICES */}
+        <Box
+          gridColumn={{ xs: "span 12", md: "span 4" }}
+          gridRow={{ xs: "span 2", md: "span 2" }}
+          backgroundColor={colors.primary[400]}
+          padding="30px"
+          borderRadius="10px"
+          boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
+        >
+          <Typography
+            variant="h5"
+            fontWeight="600"
+            sx={{ marginBottom: "10px", color: colors.grey[100] }}
+          >
+            Summary of Services
+          </Typography>
+          <Typography
+            variant="h3"
+            fontWeight="bold"
+            color={colors.greenAccent[500]}
+          >
+            {contactedServices} out of {totalServices}
+          </Typography>
+          <Box display="flex">
+            <Typography
+              style={{ marginTop: "10px" }}
+              variant="h4"
+              marginLeft=""
+              color={colors.grey[100]}
+            >
+              {completionPercentage.toFixed(2)}% completion
+            </Typography>
+            <StatBox title="" subtitle="" progress="0.80" increase="+48%" />
+          </Box>
+          <Typography variant="h5" marginTop="14px" color={colors.grey[100]}>
+            services have been contacted within the platform.
+          </Typography>
+        </Box>
+
+        {/* MOST SEARCHED PRODUCT */}
+        <Box
+          gridColumn={{ xs: "span 12", md: "span 4" }}
+          gridRow={{ xs: "span 2", md: "span 2" }}
+          backgroundColor={colors.primary[400]}
+          padding="30px"
+          borderRadius="10px"
+          boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
+        >
+          <Typography
+            variant="h5"
+            fontWeight="600"
+            sx={{ marginBottom: "15px", color: colors.grey[100] }}
+          >
+            Most Searched Product
+          </Typography>
+          <Typography variant="h6" color={colors.grey[100]}>
+            Product Name: {mostSearchedProduct.name}
+          </Typography>
+          <Typography color={colors.grey[100]}>
+            Searches: {mostSearchedProduct.searches}
+          </Typography>
+          <Typography color={colors.grey[100]}>
+            Views: {mostSearchedProduct.views}
+          </Typography>
+
+          {/* Render the Nivo pie chart */}
+          <Box mt="4px" height="160px">
+            {" "}
+            {/* Specify the height of the pie chart */}
+            <ResponsivePie
+              data={pieChartData}
+              margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
+              innerRadius={0.5}
+              padAngle={0.7}
+              cornerRadius={3}
+              colors={["#FF6384", "#36A2EB"]} // Customize the colors as needed
+              // Add a tooltip to the pie chart
+              // tooltip={(node) => (
+              //   <div>
+              //     <strong>{node.label}</strong>: {node.value}
+              //   </div>
+              // )}
+            />
+          </Box>
+        </Box>
+
+        {/* PRODUCT LISTING TABLE */}
+        <Box
+          gridColumn={{ xs: "span 12", md: "span 4" }}
+          gridRow={{ xs: "span 2", md: "span 2" }}
+          backgroundColor={colors.primary[400]}
+          padding="30px"
+          borderRadius="10px"
+          boxShadow="0px 0px 10px rgba(0, 0, 0, 0.1)"
+        >
+          <Typography
+            variant="h5"
+            fontWeight="600"
+            sx={{ marginBottom: "15px", color: colors.grey[100] }}
+          >
+            Product Listing
+          </Typography>
+          <TableContainer>
+            <Table sx={{ border: "1px solid " + colors.primary[500] }}>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Product Name</TableCell>
+                  <TableCell align="right">Searches</TableCell>
+                  <TableCell align="right">Views</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {products.map((product, index) => (
+                  <TableRow key={index}>
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      color={colors.grey[100]}
+                    >
+                      {product.name}
+                    </TableCell>
+                    <TableCell align="right" color={colors.grey[100]}>
+                      {product.searches}
+                    </TableCell>
+                    <TableCell align="right" color={colors.grey[100]}>
+                      {product.views}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </Box>
 
         {/* ROW 3 */}
