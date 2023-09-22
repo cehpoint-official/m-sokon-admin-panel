@@ -5,6 +5,7 @@ import { mockDataInvoices } from "../../data/mockData";
 import Header from "../../components/Header";
 import { Edit } from "@mui/icons-material";
 import PaymentOverview from "../../components/PaymentOverview";
+import FinancialManagement from "../../components/FinancialManagement";
 
 const Invoices = () => {
   const theme = useTheme();
@@ -173,7 +174,9 @@ const Invoices = () => {
         </Button>
       </Box>
       {/* payment overview section */}
-      <PaymentOverview/>
+      <PaymentOverview />
+
+      <FinancialManagement />
     </Box>
   );
 };
