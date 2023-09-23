@@ -43,9 +43,12 @@ const Topbar = () => {
             <NotificationsOutlinedIcon />
           </IconButton>
         </Link>
-        <IconButton>
-          <SettingsOutlinedIcon />
-        </IconButton>
+        <Link to="/security-and-privacy">
+          <IconButton>
+            <SettingsOutlinedIcon />
+          </IconButton>
+        </Link>
+
         <IconButton>
           <PersonOutlinedIcon />
         </IconButton>

@@ -97,7 +97,6 @@ const demoLevelsData = [
   },
 ];
 
-
 const Reviews = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -402,7 +401,11 @@ const Reviews = () => {
                       <TableCell>{level.createdAt}</TableCell>
                       <TableCell>{level.createdBy}</TableCell>
                       <TableCell>
-                        <Button style={{marginRight:"16px"}} variant="contained" color="primary">
+                        <Button
+                          style={{ marginRight: "16px" }}
+                          variant="contained"
+                          color="primary"
+                        >
                           Edit
                         </Button>
                         <Button variant="contained" color="error">

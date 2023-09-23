@@ -37,6 +37,8 @@ import BusinessDetailsForm from "./scenes/businessDetails";
 import MonitorBussnessDetails from "./scenes/monitorBussnessDetails";
 import OnboardingForm from "./scenes/onbording";
 import Advertisment from "./scenes/advertising";
+import BusinessInsights from "./scenes/businessInsights";
+import SecurityAndPrivacy from "./scenes/securityandPrivacy";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -106,19 +108,25 @@ function App() {
                   path="/monitor-business-details"
                   element={<MonitorBussnessDetails />}
                 />
-                <Route
-                  path="/onboaridng-form"
-                  element={<OnboardingForm />}
-                />
+                <Route path="/onboaridng-form" element={<OnboardingForm />} />
                 <Route
                   path="/advertising-management"
                   element={<Advertisment />}
+                />
+                <Route
+                  path="/business-insights"
+                  element={<BusinessInsights />}
+                />
+                <Route
+                  path="/security-and-privacy"
+                  element={<SecurityAndPrivacy />}
                 />
                 <Route path="/team" element={<Team />} />
                 {/* <Route
                   path="/monitor-performance"
                   element={<MonitorPerformancePage />}
                 /> */}
+
                 <Route path="/products" element={<Products />} />
                 <Route path="/feedback-reviews" element={<Reviews />} />
                 <Route path="/contacts" element={<Contacts />} />

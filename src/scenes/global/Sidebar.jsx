@@ -291,6 +291,13 @@ const Sidebar = () => {
                 selected={selected}
                 setSelected={setSelected}
               />
+              <Item
+                title="Business Insights"
+                to="/business-insights"
+                icon={<AddBusinessIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
 
               <Typography
                 variant="h6"
