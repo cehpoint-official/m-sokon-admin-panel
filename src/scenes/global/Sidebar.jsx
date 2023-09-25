@@ -35,6 +35,7 @@ import BusinessIcon from '@mui/icons-material/Business';
 import LegendToggleIcon from "@mui/icons-material/LegendToggle";
 import DynamicFormIcon from "@mui/icons-material/DynamicForm";
 import AddBusinessIcon from "@mui/icons-material/AddBusiness";
+import CorporateFareIcon from "@mui/icons-material/CorporateFare";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -294,7 +295,7 @@ const Sidebar = () => {
               <Item
                 title="Business Insights"
                 to="/business-insights"
-                icon={<AddBusinessIcon />}
+                icon={<CorporateFareIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />

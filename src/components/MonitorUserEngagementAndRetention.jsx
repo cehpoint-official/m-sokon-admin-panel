@@ -44,13 +44,13 @@ const UserEngagementRetentionSection = () => {
                   />
                 </ListItem>
               </List>
-              <Button
+              {/* <Button
                 variant="outlined"
                 color="secondary"
                 style={{ marginTop: 16 }}
               >
                 Edit
-              </Button>
+              </Button> */}
             </CardContent>
           </Card>
         </Grid>
@@ -69,13 +69,13 @@ const UserEngagementRetentionSection = () => {
                   <ListItemText primary="1st Month Retention" secondary="40%" />
                 </ListItem>
               </List>
-              <Button
+              {/* <Button
                 variant="outlined"
                 color="secondary"
                 style={{ marginTop: 16, marginRight: 8 }}
               >
                 Edit
-              </Button>
+              </Button> */}
             </CardContent>
           </Card>
         </Grid>

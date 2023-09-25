@@ -39,6 +39,7 @@ import OnboardingForm from "./scenes/onbording";
 import Advertisment from "./scenes/advertising";
 import BusinessInsights from "./scenes/businessInsights";
 import SecurityAndPrivacy from "./scenes/securityandPrivacy";
+import AnalyticsBarChart from "./components/AnalyticsBarChart";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -68,7 +69,7 @@ function App() {
                 />
                 <Route
                   path="/analytics-reporting"
-                  element={<AnalyticsReporting />}
+                  element={<AnalyticsBarChart />}
                 />
                 <Route
                   path="/sales-reports"

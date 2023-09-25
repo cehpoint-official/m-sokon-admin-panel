@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Typography,
   Grid,
@@ -6,22 +6,30 @@ import {
   CardContent,
   TextField,
   Button,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-// import { useHistory } from "react-router-dom"; // Import useHistory to handle redirection
 
 const SalesReportsSection = () => {
-    const navigate = useNavigate();
-//   const history = useHistory(); // Initialize useHistory
+  const navigate = useNavigate();
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const handleGenerateReport = () => {
-    // Logic to generate sales report based on selected dates
+    // Logic to generate sales report based on selected dates and category
     // You can implement your own logic here
   };
 
   const handleGoBack = () => {
-    // history.push("/analytics"); // Redirect to the analytics section
     navigate("/analytics-reporting");
+  };
+
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
   };
 
   return (
@@ -43,29 +51,46 @@ const SalesReportsSection = () => {
               <Card>
                 <CardContent>
                   <Typography variant="h6" style={{ marginBottom: 16 }}>
-                    Select Date Range
+                    Select Date Range and Category
                   </Typography>
                   <form>
+                    <FormControl fullWidth style={{ marginBottom: 16 }}>
+                      <InputLabel color="info">Category</InputLabel>
+                      <Select
+                        value={selectedCategory}
+                        onChange={handleCategoryChange}
+                      >
+                        <MenuItem value="Category A">Property</MenuItem>
+                        <MenuItem value="Category B">Service</MenuItem>
+                        <MenuItem value="Category C">Product</MenuItem>
+                      </Select>
+                    </FormControl>
                     <TextField
                       label="Start Date"
                       type="date"
+                      color="info"
                       fullWidth
                       InputLabelProps={{
                         shrink: true,
                       }}
                       style={{ marginBottom: 16 }}
+                      value={startDate}
+                      onChange={(e) => setStartDate(e.target.value)}
                     />
                     <TextField
                       label="End Date"
                       type="date"
+                      color="info"
                       fullWidth
                       InputLabelProps={{
                         shrink: true,
                       }}
+                      value={endDate}
+                      onChange={(e) => setEndDate(e.target.value)}
                     />
                     <Button
                       variant="contained"
-                      color="primary"
+                      color="secondary"
                       onClick={handleGenerateReport}
                       style={{ marginTop: 16 }}
                     >
